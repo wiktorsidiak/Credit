@@ -1,7 +1,7 @@
 package com.inteca.Inteca.dao;
 
-import com.inteca.Inteca.mapper.KredytMapper;
-import com.inteca.Inteca.model.Kredyt;
+import com.inteca.Inteca.mapper.CreditMapper;
+import com.inteca.Inteca.model.Credit;
 import lombok.RequiredArgsConstructor;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.jdbc.core.RowMapper;
@@ -13,22 +13,22 @@ import java.util.List;
 @Transactional
 @Repository
 @RequiredArgsConstructor
-public class KredytDAOImpl implements KredytDAO {
+public class CreditDAOImpl implements CreditDAO {
 
-    private JdbcTemplate jdbcTemplate;
+    private final JdbcTemplate jdbcTemplate;
 
     @Override
-    public void createCredit(Kredyt kredyt) {
-        kredyt.setCreditId(kredyt.getCreditId());
-        kredyt.setCreditName(kredyt.getCreditName());
+    public void createCredit(Credit credit) {
+        credit.setCreditId(credit.getCreditId());
+        credit.setCreditName(credit.getCreditName());
         String SQLKredyt = "INSERT INTO credit (credit_id, credit_name) VALUES (?, ?)";
-        jdbcTemplate.update(SQLKredyt, kredyt.getCreditId(), kredyt.getCreditName());
+        jdbcTemplate.update(SQLKredyt, credit.getCreditId(), credit.getCreditName());
     }
 
     @Override
-    public List<Kredyt> getCredits() {
+    public List<Credit> getCredits() {
         String SQL = "SELECT * FROM credit";
-        RowMapper<Kredyt> kredytMapper = new KredytMapper();
+        RowMapper<Credit> kredytMapper = new CreditMapper();
         return jdbcTemplate.query(SQL, kredytMapper);
     }
 }

@@ -1,24 +1,22 @@
 package com.inteca.Inteca.controller;
 
-import com.inteca.Inteca.model.Kredyt;
-import com.inteca.Inteca.service.KredytServiceImpl;
-import lombok.RequiredArgsConstructor;
+import com.inteca.Inteca.model.Credit;
+import com.inteca.Inteca.service.CreditService;
+import lombok.AllArgsConstructor;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
-import org.springframework.web.client.RestTemplate;
 
 import java.util.List;
 
 @RestController
-@RequiredArgsConstructor
+@RequestMapping("/credit")
+@AllArgsConstructor
 public class GetAllCreditsController {
-    private RestTemplate restTemplate;
+    private final CreditService creditService;
 
-    private KredytServiceImpl kredytService;
     @RequestMapping(value= {"/credits"}, method= RequestMethod.GET)
-
-    public List<Kredyt> getAllCredits() {
-        return kredytService.getCredits();
+    public List<Credit> getAllCredits() {
+        return creditService.getCredits();
     }
 }

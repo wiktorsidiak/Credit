@@ -1,16 +1,14 @@
 package com.inteca.Inteca.model;
 
 import lombok.Data;
-import lombok.Getter;
-
 import javax.persistence.*;
-import java.util.List;
 
 
 @Entity(name = "credit")
 @Data
-public class Kredyt {
+public class Credit {
     @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "credit_id")
     private Long creditId;
     @Column(name = "credit_name")

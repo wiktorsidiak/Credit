@@ -9,9 +9,9 @@
 		<relativePath/> <!-- lookup parent from repository -->
 	</parent>
 	<groupId>com.inteca</groupId>
-	<artifactId>Kredyt</artifactId>
+	<artifactId>Credit</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
-	<name>Kredyt</name>
+	<name>Credit</name>
 	<description>Solution for Inteca</description>
 	<properties>
 		<java.version>11</java.version>
@@ -72,5 +72,6 @@
 				</configuration>
 			</plugin>
 		</plugins>
+		<finalName>docker-credit</finalName>
 	</build>
 </project>
